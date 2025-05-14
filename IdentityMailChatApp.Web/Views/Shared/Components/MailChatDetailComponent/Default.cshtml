@@ -1,0 +1,28 @@
+﻿<div class="mail-list mt-4">
+    <a href="/Profile/ProfileDetail" class="list-group-item border-0 p-r-0">
+        <i class="fa fa-user font-18 align-middle mr-2"></i>
+        Profilim
+    </a>
+    <a href="/MailChat/Inbox" class="list-group-item border-0 p-r-0">
+        <i class="fa fa-inbox font-18 align-middle mr-2"></i>
+        Gelen Mesajlar
+        <span class="badge badge-primary badge-sm float-right m-t-5">@ViewBag.inboxMessageCount</span>
+    </a>
+    <a href="/MailChat/SendBox" class="list-group-item border-0 p-r-0">
+        <i class="fa fa-paper-plane font-18 align-middle mr-2"></i>
+        Gönderilen Mesajlar
+        <!-- Badge kaldırıldı -->
+    </a>
+    <a href="/MailChat/TrashBox" class="list-group-item border-0 p-r-0">
+        <i class="fa fa-trash font-18 align-middle mr-2"></i>
+        Çöp Kutusu
+        <!-- Badge kaldırıldı -->
+    </a>
+
+    <form action="/MailChat/Logout" method="post" class="p-0 m-0">
+        <button type="submit" class="list-group-item border-0 p-r-0 btn btn-link text-left text-dark w-100">
+            <i class="fa fa-sign-out font-18 align-middle mr-2"></i>
+            Çıkış Yap
+        </button>
+    </form>
+</div>

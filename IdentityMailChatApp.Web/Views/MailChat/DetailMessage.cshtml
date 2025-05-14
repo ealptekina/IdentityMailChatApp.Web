@@ -1,0 +1,30 @@
+﻿@model IdentityMailChatApp.Web.ViewModels.EmailDetailViewModel
+
+@{
+    Layout = "~/Views/Shared/_MailChatLayout.cshtml";
+}
+
+<div class="read-content">
+    <div class="media pt-5">
+        <!-- Profil resmi -->
+        <img src="@Model.SenderProfilePictureUrl" alt="Gönderen Resmi" class="mr-3 rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+
+        <div class="media-body">
+            <h5 class="m-b-3">@Model.Message.Subject</h5> <!-- Konu -->
+            <p class="m-b-2">@Model.Message.SendDate.ToString("dd MMM yyyy")</p>
+            <small class="text-muted">Gönderen: @Model.SenderName - @Model.SenderEmail</small>
+        </div>
+    </div>
+    <hr>
+    <div class="media mb-4 mt-1">
+        <div class="media-body">
+            <span class="float-right">@Model.Message.SendDate.ToString("HH:mm:ss")</span>
+            <small class="text-muted">Kime: @Model.Message.ReceiverEmail</small>
+        </div>
+    </div>
+
+    <p><strong>@Model.Message.Subject</strong></p>
+    <p>
+        @Model.Message.MessageDetail
+    </p>
+</div>

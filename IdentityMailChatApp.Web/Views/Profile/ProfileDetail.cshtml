@@ -1,0 +1,100 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profil Detay";
+    Layout = "~/Views/Shared/_MailChatLayout.cshtml";
+}
+
+@if (TempData["ProfileUpdated"] != null)
+{
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Profile Updated</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @TempData["ProfileUpdated"]
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#successModal').modal('show');
+        });
+    </script>
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Identity Chat & Email Uygulaması</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/quixlab-master/assets/images/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link href="/quixlab-master/css/style.css" rel="stylesheet">
+</head>
+
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Ana Sayfa</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("ProfileDetail", "Profile")">Profil</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="media align-items-center">
+                            <img class="mr-3" src="@Model.ProfileImageUrl" width="80" height="80" alt="">
+                            <div class="media-body">
+                                <h3 class="mb-0">@Model.Firstname @Model.Lastname</h3>
+                                <p class="text-muted mb-0">@Model.City</p>
+                            </div>
+                        </div>
+
+                        <div class="row text-center my-4">
+                            <div class="col">
+                                
+                            </div>
+                            <div class="col">
+                               
+                            </div>
+                            <div class="col-12">
+                                <a href="@Url.Action("UpdateProfile", "Profile")" class="btn btn-danger px-5">Profili Güncelle</a>
+                            </div>
+                        </div>
+
+                        <h4>Hakkımda</h4>
+                        <p class="text-muted">@Model.About</p>
+
+                        <ul class="card-profile__info">
+                            <li class="mb-1"><strong class="text-dark mr-4">Telefon:</strong> <span>@Model.PhoneNumber</span></li>
+                            <li><strong class="text-dark mr-4">Email:</strong> <span>@Model.Email</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/quixlab-master/plugins/common/common.min.js"></script>
+<script src="/quixlab-master/js/custom.min.js"></script>
+<script src="/quixlab-master/js/settings.js"></script>
+<script src="/quixlab-master/js/gleek.js"></script>
+<script src="/quixlab-master/js/styleSwitcher.js"></script>

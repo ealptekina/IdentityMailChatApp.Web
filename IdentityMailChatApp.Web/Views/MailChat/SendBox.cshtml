@@ -1,0 +1,77 @@
+﻿@model List<IdentityMailChatApp.Web.Entities.Email>
+
+@{
+    Layout = "~/Views/Shared/_MailChatLayout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'İşlem Başarılı!',
+            text: '@Html.Raw(TempData["SuccessMessage"])', // HTML karakterlerini düzgün işle
+            confirmButtonText: 'Tamam'
+        });
+    </script>
+}
+
+
+
+<div class="email-header mb-3">
+    <h4 class="text-primary">Gönderilen Mesajlar</h4>
+</div>
+
+<form method="post" action="@Url.Action("DeleteSentMessages", "MailChat")" class="mb-3">
+    <div class="input-group">
+        <input type="search" name="search" value="@Context.Request.Query["search"]"
+               class="form-control" placeholder="Arama... (Konu, Alıcı)" />
+        <button type="submit" class="btn btn-dark"><i class="fa fa-search"></i></button>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll" /></th>
+                <th>Alıcı</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var email in Model)
+            {
+                string rowClass = email.IsRead ? "table-light" : "font-weight-light";
+                <tr class="@rowClass">
+                    <td>
+                        <input type="checkbox" name="selectedMessageIds" value="@email.MessageId" />
+                    </td>
+                    <td>@email.ReceiverEmail</td>
+                    <td>
+                        <a href="@Url.Action("DetailMessage", "MailChat", new { id = email.MessageId })">
+                            @email.Subject
+                        </a>
+                    </td>
+                    <td>@email.SendDate.ToString("HH:mm dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-danger mt-3">
+        Seçilenleri Çöp Kutusuna Taşı
+    </button>
+</form>
+
+@section Scripts {
+    <script>
+        // Tüm kutucukları seç
+        document.getElementById('selectAll').onclick = function () {
+            const checkboxes = document.getElementsByName('selectedMessageIds');
+            for (const checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        };
+    </script>
+}

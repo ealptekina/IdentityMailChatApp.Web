@@ -1,0 +1,77 @@
+﻿@model List<IdentityMailChatApp.Web.Entities.Email>
+
+@{
+    Layout = "~/Views/Shared/_MailChatLayout.cshtml";
+}
+
+<div class="email-header">
+    <h4 class="text-primary">Silinen Mesajlar</h4>
+</div>
+
+<form method="get" action="@Context.Request.Path" class="mb-3">
+    <div class="input-group">
+        <input type="search" name="search" value="@Context.Request.Query["search"]"
+               class="form-control" placeholder="Arama... (Konu, Gönderen)" />
+        <button type="submit" class="btn btn-dark"><i class="fa fa-search"></i></button>
+    </div>
+</form>
+
+<form method="post" asp-controller="MailChat" asp-action="MoveToTrashMessage">
+    @Html.AntiForgeryToken()
+
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll" /></th>
+                <th>Gönderen</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var email in Model)
+            {
+                var rowClass = email.IsRead ? "" : "unread-row";
+                <tr class="@rowClass">
+                    <td>
+                        <input type="checkbox" name="messageIds" value="@email.MessageId" />
+                    </td>
+                    <td>@email.SenderEmail</td>
+                    <td>
+                        <a href="@Url.Action("DetailMessage", "MailChat", new { messageId = email.MessageId })"
+                           class="text-decoration-none text-reset">
+                            @email.Subject
+                        </a>
+                    </td>
+                    <td>@email.SendDate.ToString("HH:mm dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="mt-3">
+        <button type="submit" formaction="@Url.Action("MoveToTrashMessage", "MailChat")" class="btn btn-danger">
+            Seçilenleri Çöp Kutusuna Taşı
+        </button>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById('selectAll').onclick = function () {
+            const checkboxes = document.querySelectorAll('input[name="messageIds"]');
+            for (const checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        };
+    </script>
+}
+
+<style>
+    .unread-row {
+        font-weight: bold;
+    }
+</style>
+
+

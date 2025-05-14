@@ -1,0 +1,27 @@
+﻿@model IdentityMailChatApp.Web.Entities.Email
+
+@{
+    ViewData["Title"] = "Read Email";
+    Layout = "_MailChatLayout";
+}
+
+<div class="email-header">
+    <h4 class="text-primary">@Model.Subject</h4>
+</div>
+
+<div class="email-content mt-15">
+    <div class="sender">
+        <strong>Gönderen: </strong>@Model.SenderEmail
+    </div>
+    <div class="message-detail">
+        <p>@Model.MessageDetail</p>
+    </div>
+    <div class="date">
+        <small>@Model.SendDate.ToString("HH:mm dd/MM/yyyy")</small>
+    </div>
+</div>
+
+<div class="email-actions mt-5">
+    <a href="@Url.Action("Reply", "Email", new { id = Model.MessageId })" class="btn btn-info">Reply</a>
+    <a href="@Url.Action("Forward", "Email", new { id = Model.MessageId })" class="btn btn-warning">Forward</a>
+</div>
