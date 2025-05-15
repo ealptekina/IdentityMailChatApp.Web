@@ -95,8 +95,4 @@ IdentityMailChatApp.Web/
 
 ## 📸 Ekran Görüntüleri
 
-![Ekran görüntüsü 2025-05-15 030749](https://github.com/user-attachments/assets/a47a51e5-9602-43ad-a2e4-5c6eb5139a3e)
-
-
-
 
