@@ -96,17 +96,29 @@ IdentityMailChatApp.Web/
 ## 📸 Ekran Görüntüleri
 
 ![image](https://github.com/user-attachments/assets/2faa08b5-ca00-4fe3-8ee6-f3fbd4085201)
+
 ![image](https://github.com/user-attachments/assets/9da2bb18-b8cc-4431-944e-225c6dcf5b3b)
+
 ![image](https://github.com/user-attachments/assets/ab4ca01d-b65e-473a-814d-9344c7f62b36)
+
 ![image](https://github.com/user-attachments/assets/ce699963-90dc-4257-bbc3-db84eec6b764)
+
 ![image](https://github.com/user-attachments/assets/d03200d6-82b6-480c-9d70-2b32cd598fe0)
+
 ![image](https://github.com/user-attachments/assets/16e597e2-a985-4f18-a5df-0cd74b8a408d)
+
 ![image](https://github.com/user-attachments/assets/b5d67cd3-c018-40b4-8695-d1d38a2f0c76)
+
 ![image](https://github.com/user-attachments/assets/b9be76ca-fa0e-4877-8b09-9c02883fbbbc)
+
 ![image](https://github.com/user-attachments/assets/55d1ecaf-ff98-4673-9fdc-ec2a87a87005)
+
 ![image](https://github.com/user-attachments/assets/229c8660-4079-47d4-9a75-722c75159fd4)
+
 ![image](https://github.com/user-attachments/assets/a49ec72b-ab6d-4efd-88ce-8545e997512e)
+
 ![image](https://github.com/user-attachments/assets/8c294fbe-1852-4c19-9fb6-ae5ef10485f5)
+
 ![image](https://github.com/user-attachments/assets/5215cf69-04d0-4527-8381-629de6c3f664)
 ![image](https://github.com/user-attachments/assets/aa64d635-3810-4d33-ab25-6e5e4353793d)
 ![image](https://github.com/user-attachments/assets/08a2d98b-8610-43b0-bd6a-7cdcd0757d2d)
